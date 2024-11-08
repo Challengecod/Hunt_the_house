@@ -2,57 +2,70 @@ import java.util.ArrayList;
 
 public class Map {
 
-    private int [][] mapDetail = {
-            {1, 1, 2, 0},
-            {1, 1, 0, 0},
-            {0, 1, 2, 0},
-            {1, 2, 2, 0}, // first
-            {0, 2, 0, 0}, // out of the cave
+    private String[][] mapDetail = {
+            {"S", "R1" , "B1", "W"},
+            {"R2", "R3",  "W", "W"},
+            {"W", "R4", "R5", "W"},
+            {"W", "B3", "B4", "W"},
+            {"W", "BF", "W", "W"},
+            // Key: S = Starting, R = Riddle Rx = specific riddle B = Boss Bx = specific boss
     };
 
-    private int xRow;
-    private int yColumn ;
-    private int position;
+    private int rowSize = mapDetail.length;
+    private int columnSize = mapDetail[0].length;
 
-    public Map(){
+    private int xRow;
+    private int yColumn;
+    private String position;
+
+    public Map() {
         this.position = mapDetail[xRow][yColumn];
         this.xRow = 0;
         this.yColumn = 0;
     }
 
-    public int getXPosition(){
+    public int getXPosition() {
         return xRow;
     }
 
-    public int getYPosition(){
+    public int getYPosition() {
         return yColumn;
     }
 
-    public ArrayList<Integer> getMapPass(int level){
-        ArrayList<Integer> show = new ArrayList<>();
-        for(int i : mapDetail[0]) {
-            show.add(i);
-        }
-        return show;
+    public String getPlayerPosition() {
+        return position;
     }
 
 
     public void updatePosition(String direction) {
-        if(direction.equals("n")){
-            position = mapDetail [xRow + 1] [yColumn];
-        }
+        if (direction.equals("n")) {
+            if (xRow + 1 <= rowSize) {
+                xRow += 1;
+                position = mapDetail[xRow][yColumn];
 
-        if(direction.equals("s")){
-            position = mapDetail [xRow - 1] [yColumn];
+            }
         }
+        if (direction.equals("w")) {
+                if (yColumn - 1 >= 0) {
+                    yColumn -= 1;
+                    position = mapDetail[xRow][yColumn];
 
-        if(direction.equals("w")) {
-            position = mapDetail[xRow][yColumn - 1];
+                }
+            }
+            //[0][1]
+        if (direction.equals("e")) {
+                if (yColumn + 1 <= columnSize) {
+                    yColumn += 1;
+                    position = mapDetail[0][1];
+
+                }
         }
+    }
 
-        if(direction.equals("e")) {
-            position = mapDetail[xRow][yColumn + 1];
+    public void eneterRoom(){
+        if(getPlayerPosition().equals("R2")){
+
+
         }
-
     }
 }
