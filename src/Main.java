@@ -24,31 +24,100 @@ public class Main {
             System.out.println("HAHAHA ready to get the party started?");
             System.out.println("Goal: escape this haunted house");
             while(gameOver != true){
+                int tries = 3;
                 boolean done = false;
+                System.out.println("----------------------");
                 System.out.println("Type n(north), e(East), w(West) to navigate through the house!");
                 String direction = s.nextLine();
                 if(direction.equals("n")){
                     m.updatePosition("n");
-
                     if(m.getPlayerPosition().substring(0,1).equals("R")){
-                    System.out.println("You entered a riddle room!");
-                    }
-                    System.out.println(m.getPlayerPosition());
-                    while(done){
+                        System.out.println("You entered a riddle room!");
 
+                        System.out.println("----------------------");
+                        System.out.println("Number of Tries:" + tries);
+                        System.out.println("----------------------");
+                        System.out.println( r.getRoom(m.getPlayerPosition()));
+                        String n = s.nextLine();
+                        if(r.check(m.getPlayerPosition(), n)){
+                            System.out.println("Correct! You may keep going.");
+                        }
+
+                        else {
+                            System.out.println("Incorrect!");
+                            tries --;
+                            System.out.println("Number of Tries:" + tries);
+                            System.out.println("Enter the code number: ");
+                            n = s.nextLine();
+
+                            while (!r.check(m.getPlayerPosition(), n) && tries > 0) {
+                                System.out.println("Incorrect!");
+                                tries --;
+                                System.out.println("Number of Tries:" + tries);
+                                if(tries !=0) {
+                                    System.out.println("Enter the code number: ");
+                                    n = s.nextLine();
+                                }
+
+
+                        }
+                        if(r.check(m.getPlayerPosition(), n)){
+                            System.out.println("Correct! You may keep going.");
+                        }
+                        else{
+                            System.out.println("Incorrect your back at your previous position.");
+                            m.failedRoom("n");
+                        }
+
+                     }
                     }
                     System.out.println();
                 }
 
                 if(direction.equals("e")){
-                    System.out.println("test");
                     m.updatePosition("e");
 
                     if(m.getPlayerPosition().substring(0,1).equals("R")){
                         System.out.println("You entered a riddle room!");
-                    }
 
-                    System.out.println(m.getPlayerPosition());
+                        System.out.println("----------------------");
+                        System.out.println("Number of Tries:" + tries);
+                        System.out.println("----------------------");
+                        System.out.println( r.getRoom(m.getPlayerPosition()));
+                        String n = s.nextLine();
+                        if(r.check(m.getPlayerPosition(), n)){
+                            System.out.println("Correct! You may keep going.");
+                        }
+
+                        else {
+                            System.out.println("Incorrect!");
+                            tries --;
+                            System.out.println("Number of Tries:" + tries);
+                            System.out.println("Enter the code number: ");
+                            n = s.nextLine();
+
+                            while (!r.check(m.getPlayerPosition(), n) && tries > 0) {
+                                System.out.println("Incorrect!");
+                                tries --;
+                                System.out.println("Number of Tries:" + tries);
+                                if(tries !=0) {
+                                    System.out.println("Enter the code number: ");
+                                    n = s.nextLine();
+                                }
+
+
+                            }
+                            if(r.check(m.getPlayerPosition(), n)){
+                                System.out.println("Correct! You may keep going.");
+                            }
+                            else{
+                                System.out.println("Incorrect your back at your previous position.");
+                                m.failedRoom("n");
+                            }
+
+                        }
+
+                    }
 
                 }
 
@@ -62,7 +131,9 @@ public class Main {
 
                 }
 
-                gameOver = true;
+                if(m.getPlayerPosition().equals("BF")){
+                    gameOver = true;
+                }
 
             }
         }

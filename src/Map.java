@@ -62,10 +62,27 @@ public class Map {
         }
     }
 
-    public void eneterRoom(){
-        if(getPlayerPosition().equals("R2")){
+    public void failedRoom(String direction){
+
+
+        if (direction.equals("n")) {
+                xRow -= 1;
+                position = mapDetail[xRow][yColumn];
+
+        }
+
+        if (direction.equals("w")) {
+                yColumn -= 1;
+                position = mapDetail[xRow][yColumn];
 
 
         }
+        //[0][1]
+        if (direction.equals("e")) {
+                yColumn += 1;
+                position = mapDetail[0][1];
+
+        }
+
     }
 }
