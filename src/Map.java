@@ -56,7 +56,7 @@ public class Map {
         if (direction.equals("e")) {
                 if (yColumn + 1 <= columnSize) {
                     yColumn += 1;
-                    position = mapDetail[0][1];
+                    position = mapDetail[xRow][yColumn];
 
                 }
         }
@@ -72,15 +72,15 @@ public class Map {
         }
 
         if (direction.equals("w")) {
-                yColumn -= 1;
+                yColumn += 1;
                 position = mapDetail[xRow][yColumn];
 
 
         }
         //[0][1]
         if (direction.equals("e")) {
-                yColumn += 1;
-                position = mapDetail[0][1];
+                yColumn -= 1;
+                position = mapDetail[xRow][yColumn];
 
         }
 

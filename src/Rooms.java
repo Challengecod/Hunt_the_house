@@ -18,7 +18,7 @@ public class Rooms {
         }
 
         if(r.equals("R3")){
-            String s = "I’m an odd number.\n " + " But if you take away a letter from my name, I will become even. What number am I?\n" + "Enter your code number: " ;
+            String s = "I’m an odd number.\n " + "But if you take away a letter from my name, I will become even. What number am I?\n" + "Enter your code number: " ;
             return s;
         }
 
