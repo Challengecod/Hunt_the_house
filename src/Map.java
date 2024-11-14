@@ -1,15 +1,14 @@
-import java.util.ArrayList;
-
 public class Map {
 
     private String[][] mapDetail = {
-            {"S", "R1" , "B1", "W"},
-            {"R2", "R3",  "W", "W"},
-            {"W", "R4", "R5", "W"},
-            {"W", "B3", "B4", "W"},
-            {"W", "BF", "W", "W"},
+            {"S", "R1", "B1", "W"}, //[0][1]
+            {"R2", "R3", "W", "W"}, //[1]
+            {"W", "R4", "R5", "W"}, //[2]
+            {"W", "B2", "B3", "W"}, //[3]
+            {"W", "BF", "W", "W"}, //[4]
             // Key: S = Starting, R = Riddle Rx = specific riddle B = Boss Bx = specific boss
     };
+
 
     private int rowSize = mapDetail.length;
     private int columnSize = mapDetail[0].length;
@@ -68,14 +67,11 @@ public class Map {
         if (direction.equals("n")) {
                 xRow -= 1;
                 position = mapDetail[xRow][yColumn];
-
         }
 
         if (direction.equals("w")) {
                 yColumn += 1;
                 position = mapDetail[xRow][yColumn];
-
-
         }
         //[0][1]
         if (direction.equals("e")) {

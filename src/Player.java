@@ -28,27 +28,50 @@ public class Player {
       attackPoints += 5;
 
     }
-//
-//    if(r.equals("R3")){
-//
-//    }
-//
-//    if(r.equals("R4")){
-//
-//    }
+
+    if(r.equals("R3")){
+
+      healthPoints += 4;
+      attackPoints += 1;
+
+    }
+
+    if(r.equals("R4")){
+      healthPoints += 3;
+      attackPoints += 2;
+    }
+
+    if(r.equals("R5")){
+      healthPoints += 1;
+      attackPoints += 1;
+    }
+
   }
 
   public void updateHealthAttackBoss(String b) {
     if (b.equals("B1")) {
-      healthPoints += 9;
-      attackPoints += 5;
+      healthPoints += 5;
+      attackPoints += 4;
 
     }
 
     if (b.equals("B2")) {
 
-      healthPoints += 9;
-      attackPoints += 6;
+      healthPoints += 5;
+      attackPoints += 4;
+
+    }
+
+    if (b.equals("B3")) {
+
+      healthPoints += 5;
+      attackPoints += 4;
+
+    }
+    if (b.equals("BF")) {
+
+      healthPoints += 100;
+      attackPoints += 100;
 
     }
   }
