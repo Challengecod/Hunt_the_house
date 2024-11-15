@@ -15,18 +15,18 @@ public class Main {
         System.out.println("Welcome to the Huanted House " + "\uD83C\uDF83" + "\uD83C\uDFDA");
         System.out.println("The thunder outside is booming! " + "⚡\uFE0F" + "\uD83C\uDFDA");
         System.out.println("Hurry up and enter the house " + "\uD83D\uDC79");
-        System.out.println("Type Enter to enter the house " + "\uD83D\uDC79" );
+        System.out.println("Type Enter to enter the house " + "\uD83D\uDC79");
         String enter = s.nextLine();
 
         boolean gameOver = false;
 
-        if(enter.equals("ed")){
+        if (enter.equals("ed")) {
             System.out.println("HAHAHA ready to get the party started?");
             System.out.println("Goal: escape this haunted house");
             System.out.println("Player Stats: ");
             System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Health points: " + p.getHealth());
             System.out.println("⚔\uFE0F Attack points: " + p.getAttack());
-            while(gameOver != true){
+            while (gameOver != true) {
                 int tries = 3;
 
                 System.out.println("----------------------");
@@ -34,51 +34,47 @@ public class Main {
                 System.out.println("Type s to see your player stats!");
                 System.out.println("Type m to see your position on the map!");
                 String direction = s.nextLine();
-                if(direction.equals("n")){
+                if (direction.equals("n")) {
                     m.updatePosition("n");
-                    if(m.getPlayerPosition().substring(0,1).equals("R")){
+                    if (m.getPlayerPosition().substring(0, 1).equals("R")) {
                         System.out.println("You entered a riddle room!");
 
                         System.out.println("----------------------");
                         System.out.println("Number of Tries:" + tries);
                         System.out.println("----------------------");
-                        System.out.println( r.getRoom(m.getPlayerPosition()));
+                        System.out.println(r.getRoom(m.getPlayerPosition()));
                         String n = s.nextLine();
 
-                        if(r.check(m.getPlayerPosition(), n)){
+                        if (r.check(m.getPlayerPosition(), n)) {
                             System.out.println("Correct! You may keep going.");
                             p.updateHealthAttackRoom(m.getPlayerPosition());
 
-                        }
-
-                        else {
+                        } else {
                             System.out.println("Incorrect!");
-                            tries --;
+                            tries--;
                             System.out.println("Number of Tries:" + tries);
                             System.out.println("Enter the code number: ");
                             n = s.nextLine();
 
                             while (!r.check(m.getPlayerPosition(), n) && tries > 0) {
                                 System.out.println("Incorrect!");
-                                tries --;
+                                tries--;
                                 System.out.println("Number of Tries:" + tries);
-                                if(tries !=0) {
+                                if (tries != 0) {
                                     System.out.println("Enter the code number: ");
                                     n = s.nextLine();
                                 }
 
 
+                            }
+                            if (r.check(m.getPlayerPosition(), n)) {
+                                System.out.println("Correct! You may keep going.");
+                                p.updateHealthAttackRoom(m.getPlayerPosition());
+                            } else {
+                                System.out.println("Incorrect your back at your previous position.");
+                                m.failedRoom("n");
+                            }
                         }
-                        if(r.check(m.getPlayerPosition(), n)){
-                            System.out.println("Correct! You may keep going.");
-                            p.updateHealthAttackRoom(m.getPlayerPosition());
-                        }
-
-                        else{
-                            System.out.println("Incorrect your back at your previous position.");
-                            m.failedRoom("n");
-                        }
-                     }
                         System.out.println("Player Stats: ");
                         System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Health points: " + p.getHealth());
                         System.out.println("⚔\uFE0F Attack points: " + p.getAttack());
@@ -90,7 +86,7 @@ public class Main {
                         System.out.println("SO EXCITING!!!");
                         System.out.println("Aight lets get to it");
                         System.out.println("Aim: Win when the boss has no health points ");
-                        while(b.getHealthPoints() >= 0 && p.getHealth() >= 0) {
+                        while (b.getHealthPoints() >= 0 && p.getHealth() >= 0) {
                             System.out.println("---------------");
                             System.out.println("Boss Stats:");
 
@@ -103,11 +99,11 @@ public class Main {
                             System.out.println("---------------");
                             System.out.println("Type a(attack) or click enter if you don't want to attack: ");
                             String a = s.nextLine();
-                            if(a.equals("a")){
+                            if (a.equals("a")) {
                                 b.getHit(p.getAttack());
                                 System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Boss Health points: " + b.getHealthPoints());
                             }
-                            TimeUnit.SECONDS.sleep(1/2);
+                            TimeUnit.SECONDS.sleep(1 / 2);
 
                             System.out.println("The boss attacks!");
                             TimeUnit.SECONDS.sleep(1);
@@ -116,13 +112,13 @@ public class Main {
                             TimeUnit.SECONDS.sleep(2);
                         }
 
-                        if(p.getHealth() <= 0){
+                        if (p.getHealth() <= 0) {
                             System.out.println("Close one");
-                            System.out.println("GAME OVER");
+                            String RESET = "\u001B[0m";
+                            String RED = "\u001B[31m";
+                            System.out.println(RED + "GAME OVER" + RESET);
                             gameOver = true;
-                        }
-
-                        else{
+                        } else {
                             System.out.println();
                             System.out.println("---------");
                             System.out.println("You won!");
@@ -135,7 +131,7 @@ public class Main {
 
                     }
 
-                    if(m.getPlayerPosition().substring(0,1).equals("W") || m.getPlayerPosition().equals("")){
+                    if (m.getPlayerPosition().substring(0, 1).equals("W") || m.getPlayerPosition().equals("")) {
                         System.out.println("You bumped into a wall!");
                         m.failedRoom("n");
                     }
@@ -143,7 +139,7 @@ public class Main {
                     System.out.println();
                 }
 
-                if(direction.equals("e")) {
+                if (direction.equals("e")) {
                     m.updatePosition("e");
 
                     if (m.getPlayerPosition().substring(0, 1).equals("R")) {
@@ -157,9 +153,7 @@ public class Main {
                         if (r.check(m.getPlayerPosition(), n)) {
                             System.out.println("Correct! You may keep going.");
                             p.updateHealthAttackRoom(m.getPlayerPosition());
-                        }
-
-                        else {
+                        } else {
                             System.out.println("Incorrect!");
                             tries--;
                             System.out.println("Number of Tries:" + tries);
@@ -180,8 +174,7 @@ public class Main {
                                 System.out.println("Correct! You may keep going.");
                                 p.updateHealthAttackRoom(m.getPlayerPosition());
 
-                            }
-                            else {
+                            } else {
                                 System.out.println("Incorrect your back at your previous position.");
                                 m.failedRoom("e");
                             }
@@ -200,7 +193,7 @@ public class Main {
                         System.out.println("SO EXCITING!!!");
                         System.out.println("Aight lets get to it");
                         System.out.println("Aim: Win when the boss has no health points ");
-                        while(b.getHealthPoints() >= 0 && p.getHealth() >= 0) {
+                        while (b.getHealthPoints() >= 0 && p.getHealth() >= 0) {
                             System.out.println("---------------");
                             System.out.println("Boss Stats:");
 
@@ -213,11 +206,11 @@ public class Main {
                             System.out.println("---------------");
                             System.out.println("Type a(attack) or click enter if you don't want to attack: ");
                             String a = s.nextLine();
-                            if(a.equals("a")){
+                            if (a.equals("a")) {
                                 b.getHit(p.getAttack());
                                 System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Boss Health points: " + b.getHealthPoints());
                             }
-                            TimeUnit.SECONDS.sleep(1/2);
+                            TimeUnit.SECONDS.sleep(1 / 2);
 
                             System.out.println("The boss attacks!");
                             TimeUnit.SECONDS.sleep(1);
@@ -226,34 +219,34 @@ public class Main {
                             TimeUnit.SECONDS.sleep(2);
                         }
 
-                        if(p.getHealth() <= 0){
+                        if (p.getHealth() <= 0) {
                             System.out.println("Close one");
-                            System.out.println("GAME OVER");
-                            gameOver= true;
-                        }
-
-                        else{
+                            String RESET = "\u001B[0m";
+                            String RED = "\u001B[31m";
+                            System.out.println(RED + "GAME OVER" + RESET);
+                            gameOver = true;
+                        } else {
                             System.out.println();
                             System.out.println("---------");
                             System.out.println("You won!");
                             p.updateHealthAttackBoss(m.getPlayerPosition());
+                            System.out.println("Player Stats: ");
+                            System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Health points: " + p.getHealth());
+                            System.out.println("⚔\uFE0F Attack points: " + p.getAttack());
 
                         }
 
-                        System.out.println("Player Stats: ");
-                        System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Health points: " + p.getHealth());
-                        System.out.println("⚔\uFE0F Attack points: " + p.getAttack());
 
                     }
 
-                    if(m.getPlayerPosition().substring(0,1).equals("W")){
+                    if (m.getPlayerPosition().substring(0, 1).equals("W")) {
                         System.out.println("You bumped into a wall!");
                         m.failedRoom("e");
                     }
 
                 }
 
-                if(direction.equals("w")){
+                if (direction.equals("w")) {
 
                     m.updatePosition("w");
                     if (m.getPlayerPosition().substring(0, 1).equals("R")) {
@@ -267,9 +260,7 @@ public class Main {
                         if (r.check(m.getPlayerPosition(), n)) {
                             System.out.println("Correct! You may keep going.");
                             p.updateHealthAttackRoom(m.getPlayerPosition());
-                        }
-
-                        else {
+                        } else {
                             System.out.println("Incorrect!");
                             tries--;
                             System.out.println("Number of Tries:" + tries);
@@ -290,8 +281,7 @@ public class Main {
                                 System.out.println("Correct! You may keep going.");
                                 p.updateHealthAttackRoom(m.getPlayerPosition());
 
-                            }
-                            else {
+                            } else {
                                 System.out.println("Incorrect your back at your previous position.");
                                 m.failedRoom("w");
                             }
@@ -310,7 +300,7 @@ public class Main {
                         System.out.println("SO EXCITING!!!");
                         System.out.println("Aight lets get to it");
                         System.out.println("Aim: Win when the boss has no health points ");
-                        while(b.getHealthPoints() >= 0 && p.getHealth() >= 0) {
+                        while (b.getHealthPoints() > 0 && p.getHealth() >= 0) {
                             System.out.println("---------------");
                             System.out.println("Boss Stats:");
 
@@ -323,11 +313,11 @@ public class Main {
                             System.out.println("---------------");
                             System.out.println("Type a(attack) or click enter if you don't want to attack: ");
                             String a = s.nextLine();
-                            if(a.equals("a")){
+                            if (a.equals("a")) {
                                 b.getHit(p.getAttack());
                                 System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Boss Health points: " + b.getHealthPoints());
                             }
-                            TimeUnit.SECONDS.sleep(1/2);
+                            TimeUnit.SECONDS.sleep(1 / 2);
 
                             System.out.println("The boss attacks!");
                             TimeUnit.SECONDS.sleep(1);
@@ -336,13 +326,11 @@ public class Main {
                             TimeUnit.SECONDS.sleep(2);
                         }
 
-                        if(p.getHealth() <= 0){
+                        if (p.getHealth() <= 0) {
                             System.out.println("Close one");
                             System.out.println("GAME OVER");
-                            gameOver= true;
-                        }
-
-                        else{
+                            gameOver = true;
+                        } else {
                             System.out.println();
                             System.out.println("---------");
                             System.out.println("You won!");
@@ -356,13 +344,13 @@ public class Main {
 
                     }
 
-                    if(m.getPlayerPosition().substring(0,1).equals("W")){
+                    if (m.getPlayerPosition().substring(0, 1).equals("W")) {
                         System.out.println("You bumped into a wall!");
                         m.failedRoom("w");
                     }
                 }
 
-                if(direction.equals("s")){
+                if (direction.equals("s")) {
                     System.out.println("-----------------");
                     System.out.println("Player Stats: ");
                     System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Health points: " + p.getHealth());
@@ -370,22 +358,64 @@ public class Main {
 
                 }
 
-                if(direction.equals("m")){
+                if (direction.equals("m")) {
                     System.out.println(m.getPlayerPosition());
                 }
 
-                if(m.getPlayerPosition().equals("BF")){
-                    gameOver = true;
+                if (m.getPlayerPosition().equals("BF")) {
+                    System.out.println("YOU MET THE FINAL BOSS!");
+                    b.bossHealth(m.getPlayerPosition());
+                    System.out.println("SO EXCITING!!!");
+                    System.out.println("Aight lets get to it");
+                    System.out.println("Aim: Win when the boss has no health points ");
+                    while (b.getHealthPoints() > 0 && p.getHealth() >= 0) {
+                        System.out.println("---------------");
+                        System.out.println("Boss Stats:");
+
+                        System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Health points: " + b.getHealthPoints());
+                        System.out.println("⚔\uFE0F Attack points: " + b.getAttackPoints());
+                        System.out.println("---------------");
+                        System.out.println("Player Stats: ");
+                        System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Health points: " + p.getHealth());
+                        System.out.println("⚔\uFE0F Attack points: " + p.getAttack());
+                        System.out.println("---------------");
+                        System.out.println("Type a(attack) or click enter if you don't want to attack: ");
+                        String a = s.nextLine();
+                        if (a.equals("a")) {
+                            b.getHit(p.getAttack());
+                            System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Boss Health points: " + b.getHealthPoints());
+                        }
+                        TimeUnit.SECONDS.sleep(1 / 2);
+
+                        System.out.println("The boss attacks!");
+                        TimeUnit.SECONDS.sleep(1);
+                        p.getHit(b.getAttackPoints());
+                        System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Player Health points: " + p.getHealth());
+                        TimeUnit.SECONDS.sleep(2);
+                    }
+
+                    if (p.getHealth() <= 0) {
+                        System.out.println("Close one");
+                        System.out.println("GAME OVER");
+                        gameOver = true;
+                    } else {
+                        System.out.println();
+                        System.out.println("---------");
+                        System.out.println("You won!");
+                        System.out.println();
+                        gameOver = true;
+
+                        System.out.println("You escaped the haunted house!!");
+                        System.out.println("How do you feel? (Don't answer) ");
+                        System.out.println("Come Back next time! We will have more riddles for you.");
+
+                    }
+
                 }
-
-
             }
+
+
         }
 
-
-
     }
-
-
-
 }
