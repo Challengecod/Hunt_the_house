@@ -35,9 +35,9 @@ public class Rooms {
         return "nothing";
     }
 
-    public boolean check(String r, String n){
+    public boolean check(String r, String answer){
         if(r.equals("R1")){
-            if(n.equals("3")){
+            if(answer.equals("3")){
                 return true;
             }
             else{
@@ -47,7 +47,7 @@ public class Rooms {
         }
 
         if(r.equals("R2")){
-            if(n.equals("9")){
+            if(answer.equals("9")){
                 return true;
             }
             else{
@@ -56,7 +56,7 @@ public class Rooms {
         }
 
         if(r.equals("R3")){
-            if(n.equals("7")){
+            if(answer.equals("7")){
                 return true;
             }
             else{
@@ -65,7 +65,7 @@ public class Rooms {
         }
 
         if(r.equals("R4")){
-            if(n.equals("26")){
+            if(answer.equals("26")){
                 return true;
             }
 
@@ -75,7 +75,7 @@ public class Rooms {
         }
 
         if(r.equals("R5")){
-            if(n.equals("5")){
+            if(answer.equals("5")){
                 return true;
             }
             else{

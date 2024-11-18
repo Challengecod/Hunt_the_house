@@ -76,6 +76,10 @@ public class Player {
     }
   }
 
+  public void updateHealthPotion(){
+    healthPoints += 5;
+  }
+
   public void getHit(int attack){
     healthPoints -= attack;
   }

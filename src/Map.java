@@ -4,7 +4,7 @@ public class Map {
             {"S", "R1", "B1", "W"}, //[0][1]
             {"R2", "R3", "W", "W"}, //[1]
             {"W", "R4", "R5", "W"}, //[2]
-            {"W", "B2", "B3", "W"}, //[3]
+            {"R6", "B2", "B3", "W"}, //[3]
             {"W", "BF", "W", "W"}, //[4]
             // Key: S = Starting, R = Riddle Rx = specific riddle B = Boss Bx = specific boss
     };
@@ -73,7 +73,8 @@ public class Map {
                 yColumn += 1;
                 position = mapDetail[xRow][yColumn];
         }
-        //[0][1]
+
+
         if (direction.equals("e")) {
                 yColumn -= 1;
                 position = mapDetail[xRow][yColumn];
