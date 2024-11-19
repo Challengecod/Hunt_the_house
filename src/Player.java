@@ -42,7 +42,7 @@ public class Player {
     }
 
     if(r.equals("R5")){
-      healthPoints += 1;
+      healthPoints += 3;
       attackPoints += 1;
     }
 
@@ -64,7 +64,7 @@ public class Player {
 
     if (b.equals("B3")) {
 
-      healthPoints += 5;
+      healthPoints += 12;
       attackPoints += 4;
 
     }

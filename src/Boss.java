@@ -10,10 +10,10 @@ public class Boss {
 
   public void bossHealth(String n){
     // (int)( math.random() * max - min +1 ) + min
-    // B1 health max = 12 min = 10
+    // B1 health max = 10 min = 7
     // B1 attack max = 2 min = 1
     if (n.equals("B1")) {
-      healthPoints = (int) (Math.random()*(12-10+1))+ 10;
+      healthPoints = (int) (Math.random()*(10-7+1))+ 7;
       attackPoints = (int) (Math.random()* (2-1+1))+ 1;
     }
     // B2 health max = 15 min = 12

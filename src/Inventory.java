@@ -4,7 +4,6 @@ public class Inventory {
   private ArrayList<String> inventory = new ArrayList<>();
 
   public Inventory(){
-
   }
 
   public void addInventory(String potion){
@@ -13,8 +12,11 @@ public class Inventory {
 
   public String items(){
     String s = "Your items: ";
+    if (inventory.isEmpty()){
+      return "No Items yet!";
+    }
     for(int i =0; i < inventory.size(); i++){
-      s += inventory.get(i)+", ";
+      s += inventory.get(i)+" ";
     }
     return s;
   }
