@@ -17,7 +17,7 @@ public class Player {
 
   public void updateHealthAttackRoom(String r){
     if(r.equals("R1")){
-      healthPoints += 5;
+      healthPoints += 8;
       attackPoints += 3;
 
     }
@@ -50,14 +50,14 @@ public class Player {
 
   public void updateHealthAttackBoss(String b) {
     if (b.equals("B1")) {
-      healthPoints += 5;
+      healthPoints += 10;
       attackPoints += 4;
 
     }
 
     if (b.equals("B2")) {
 
-      healthPoints += 5;
+      healthPoints += 8;
       attackPoints += 4;
 
     }

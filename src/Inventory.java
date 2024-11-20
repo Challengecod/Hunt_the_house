@@ -13,7 +13,7 @@ public class Inventory {
   public String items(){
     String s = "Your items: ";
     if (inventory.isEmpty()){
-      return "No Items yet!";
+      return "No Items!";
     }
     for(int i =0; i < inventory.size(); i++){
       s += inventory.get(i)+" ";

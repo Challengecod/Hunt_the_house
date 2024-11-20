@@ -17,10 +17,10 @@ public class Boss {
       attackPoints = (int) (Math.random()* (2-1+1))+ 1;
     }
     // B2 health max = 15 min = 12
-    // B2 attack max = 5 min = 3
+    // B2 attack max = 4 min = 2
     if (n.equals("B2")) {
       healthPoints = (int) (Math.random()*(15-12+1))+ 12;
-      attackPoints = (int) (Math.random()* (5-3+1))+ 3;
+      attackPoints = (int) (Math.random()* (4-2+1))+ 3;
     }
     // B3 health max = 20 min = 15
     // B3 attack max = 8 min = 5
