@@ -1,8 +1,8 @@
 public class Map {
 
     private String[][] mapDetail = {
-            {"S", "R1", "W", "W"}, //[0][1]
-            {"R2", "R3", "B1", "W"}, //[1]
+            {"S", "R1", "B1", "W"}, //[0][1]
+            {"R2", "R3", "W", "W"}, //[1]
             {"W", "B2", "R5", "W"}, //[2]
             {"W", "R4", "B3", "W"}, //[3]
             {"W", "BF", "W", "W"}, //[4]
@@ -87,7 +87,12 @@ public class Map {
         String map = "";
         for(int i = 0; i  < rowSize; i++){
             for(int j = 0; j < columnSize; j ++){
-                map += mapDetail[i][j] + " ";
+                if(mapDetail[i][j].length()!= 2){
+                    map +=  mapDetail[i][j] + "  ";
+                }
+                else {
+                    map += mapDetail[i][j] + " ";
+                }
             }
             map += "\n";
         }
