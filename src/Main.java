@@ -27,7 +27,6 @@ public class Main {
             System.out.println("⚔\uFE0F Attack points: " + p.getAttack());
 
             while (gameOver != true) {
-                String previous  = m.getPlayerPosition();
                 int tries = 3;
                 boolean tick = false;
 
@@ -698,12 +697,7 @@ public class Main {
                         System.out.println("B = Boss Fight");
                         System.out.println("Have fun! ");
                     }
-
-
-                }
-
-
             }
-
         }
     }
+}

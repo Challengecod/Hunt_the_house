@@ -1,7 +1,32 @@
+/**
+ * The Room class represents a Riddle Room.
+ * and a hobby
+ */
+
 public class Rooms {
+
+    /**
+     * Constructor for the Room class. This creates a new instance of a Room given
+     * there is no variables to initialize
+     */
+
     public Rooms(){
 
     }
+
+    /**
+     * getRoom method for the Room class. This method will return a String
+     * containing the riddle problem. This is according to the string
+     * variable r for which Room number
+     *
+     * @param r a String representing the position of the player at a
+     * specific room number.
+     *
+     * @return returns a String in a containing a riddle question.
+     *
+     * the riddle of a specific Room according to the String r.
+     */
+
 
     public String getRoom(String r){
         if(r.equals("R1")){
@@ -34,6 +59,16 @@ public class Rooms {
 
         return "nothing";
     }
+
+    /**
+     * The check method will check the answer of the user given the riddle.
+     *
+     *
+     * @param r a String representing the Room number
+     * @param answer a String representing the user’s answer towards a
+     *                   riddle
+     * @return a boolean to true or false according to the answer matched with the specified room     */
+
 
     public boolean check(String r, String answer){
         if(r.equals("R1")){

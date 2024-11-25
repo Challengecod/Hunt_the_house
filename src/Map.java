@@ -1,3 +1,8 @@
+/**
+ * The Map class represents the map. The map is a 2D String Array that
+ * contains the position of the player and the layout of the map.
+ */
+
 public class Map {
 
     private String[][] mapDetail = {
@@ -17,6 +22,14 @@ public class Map {
     private int yColumn;
     private String position;
 
+    /**
+     * Constructor for the Map class. This creates a new instance of a position
+     * starting at zero xRow row index set to zero and
+     * yColumn column index set to zero
+     *
+     */
+
+
     public Map() {
         this.position = mapDetail[xRow][yColumn];
         this.xRow = 0;
@@ -31,10 +44,26 @@ public class Map {
         return yColumn;
     }
 
+    /**
+     * getPlayerPosition method for the Map class. This method will return
+     * player’s position based on their row and column number.
+     *
+     * @return returns a String of the player position.
+     *
+     */
+
     public String getPlayerPosition() {
         return position;
     }
 
+    /**
+     * updatePosition method for the Map class. This method will update
+     * player’s position based on their direction. North the row will
+     * increase, East the column would increase, West the column would decrease
+     *
+     * @param direction represents a String of the direction.
+     *
+     */
 
     public void updatePosition(String direction) {
         if (direction.equals("n")) {
@@ -61,6 +90,16 @@ public class Map {
         }
     }
 
+    /**
+     * failedRoom method for the Map class. This method will update
+     * player’s position to their previous position based on their
+     * direction they input before. North the row will decrease
+     * East the column would decrease, West the column would increase
+     *
+     * @param direction represents a String of the direction.
+     *
+     */
+
     public void failedRoom(String direction){
 
 
@@ -82,6 +121,15 @@ public class Map {
         }
 
     }
+
+    /**
+     * mapInformation method for the Map class. This method will add all
+     * the map positions to a string for the user to see the whole map
+     *
+     * @return returns a String of the values in the 2D String Array
+     *
+     */
+
 
     public String mapInformation(){
         String map = "";

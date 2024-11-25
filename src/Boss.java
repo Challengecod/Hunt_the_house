@@ -1,12 +1,32 @@
+/**
+ * The Boss class represents a Boss. A Boss has health points and
+ * attack points
+ */
+
 public class Boss {
 
   private int healthPoints = 0;
   private int attackPoints = 0;
 
+  /**
+   * Constructor for the Boss class. This creates a new instance of a boss
+   * with zero health points and zero attack points
+   *
+   */
+
   public Boss(){
     this.healthPoints =0;
     this.attackPoints = 0;
   }
+
+  /**
+   * bossHealth method for the Boss class. This method will update the
+   * boss health and attack points randomly according to the Boss number.
+   * sentence.
+   *
+   * @param n represents the specific Boss number.
+   *
+   */
 
   public void bossHealth(String n){
     // (int)( math.random() * max - min +1 ) + min
@@ -36,13 +56,37 @@ public class Boss {
     }
   }
 
+  /**
+   * getHealthPoints method for the Boss class. This method will return
+   * boss health points.
+   *
+   * @return returns an Integer of the Boss health points.
+   *
+   */
+
   public int getHealthPoints(){
     return healthPoints;
   }
+  /**
+   * getAttackPoints method for the Boss class. This method will return
+   * boss attack points.
+   *
+   * @return returns an Integer of the Boss attack points.
+   *
+   */
 
   public int getAttackPoints() {
     return attackPoints;
   }
+
+  /**
+   * getHit method for the Boss class. This method will subtract
+   * boss health points based on the players attack points.
+   *
+   * @param attack an integer representing the player’s attack points
+   *
+   *
+   */
 
   public void getHit(int attack){
     healthPoints -= attack;
