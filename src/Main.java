@@ -80,11 +80,13 @@ public class Main {
                                 if (a.equals("a")) {
                                     b.getHit(p.getAttack());
                                     System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Boss Health points: " + b.getHealthPoints());
-                                } else if (a.equals("u")) {
+                                } 
+                                else if (a.equals("u")) {
                                     System.out.println(inventory.items());
                                     if (inventory.items().equals("No Items!")) {
                                         System.out.println("You just lost a turn because you have no items \uD83D\uDE2D");
-                                    } else {
+                                    } 
+                                    else {
                                         System.out.println("Poison potion = Boss health ticks by one every player turn. \uD83D\uDC9A");
                                         System.out.println("Healing potion = Heal your own health by 5 points. \uD83D\uDC96 ");
                                         System.out.println("Enter your potion (don't add the word potion after): ");
@@ -126,7 +128,8 @@ public class Main {
                                 System.out.println("Close one");
                                 System.out.println("GAME OVER");
                                 gameOver = true;
-                            } else {
+                            } 
+                            else {
                                 System.out.println();
                                 System.out.println("---------");
                                 System.out.println("You won!");
@@ -139,7 +142,8 @@ public class Main {
 
                             }
 
-                        } else if (m.getPlayerPosition().substring(0, 1).equals("B")) {
+                        } 
+                        else if (m.getPlayerPosition().substring(0, 1).equals("B")) {
                             System.out.println("YOU MET A BOSS!");
                             b.bossHealth(m.getPlayerPosition());
                             System.out.println("SO EXCITING!!!");
@@ -176,12 +180,14 @@ public class Main {
                                 if (a.equals("a")) {
                                     b.getHit(p.getAttack());
                                     System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Boss Health points: " + b.getHealthPoints());
-                                } else if (a.equals("u")) {
+                                } 
+                                else if (a.equals("u")) {
 
                                     System.out.println(inventory.items());
                                     if (inventory.items().equals("No Items!")) {
                                         System.out.println("You just lost a turn because you have no items \uD83D\uDE2D");
-                                    } else {
+                                    } 
+                                    else {
                                         System.out.println("Poison potion = Boss health ticks by one every player turn. \uD83D\uDC9A");
                                         System.out.println("Healing potion = Heal your own health by 5 points. \uD83D\uDC96 ");
                                         System.out.println("Type poison for Poison Potion and healing for Healing Potion");
@@ -225,7 +231,8 @@ public class Main {
                                 String RED = "\u001B[31m";
                                 System.out.println(RED + "GAME OVER" + RESET);
                                 gameOver = true;
-                            } else {
+                            } 
+                            else {
                                 System.out.println();
                                 System.out.println("---------");
                                 System.out.println("You won!");
@@ -262,7 +269,8 @@ public class Main {
                                     inventory.addInventory("poison Potion");
                                 }
 
-                            } else {
+                            } 
+                            else {
                                 System.out.println("Incorrect!");
                                 tries--;
                                 System.out.println("Number of Tries: " + tries);
@@ -295,7 +303,8 @@ public class Main {
                                         System.out.println("Rare Drop Poison Potion! \uD83D\uDC9A ");
                                         inventory.addInventory("poison Potion");
                                     }
-                                } else {
+                                } 
+                                else {
                                     System.out.println("Incorrect your back at your previous position.");
                                     m.failedRoom("n");
                                 }
@@ -341,7 +350,8 @@ public class Main {
                                 System.out.println("Rare Drop Poison Potion! \uD83D\uDC9A ");
                                 inventory.addInventory("poison Potion");
                             }
-                        } else {
+                        } 
+                        else {
                             System.out.println("Incorrect!");
                             tries--;
                             System.out.println("Number of Tries: " + tries);
@@ -373,7 +383,8 @@ public class Main {
                                     inventory.addInventory("poison Potion");
                                 }
 
-                            } else {
+                            } 
+                            else {
                                 System.out.println("Incorrect your back at your previous position.");
                                 m.failedRoom("e");
                             }
@@ -424,11 +435,13 @@ public class Main {
                                 b.getHit(p.getAttack());
                                 System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Boss Health points: " + b.getHealthPoints());
 
-                            } else if (a.equals("u")) {
+                            } 
+                            else if (a.equals("u")) {
                                 System.out.println(inventory.items());
                                 if (inventory.items().equals("No Items!")) {
                                     System.out.println("You just lost a turn because you have no items \uD83D\uDE2D");
-                                } else {
+                                } 
+                                else {
                                     System.out.println("Poison potion = Boss health ticks by one every player turn. \uD83D\uDC9A");
                                     System.out.println("Healing potion = Heal your own health by 5 points. \uD83D\uDC96 ");
                                     System.out.println("Enter your potion (don't add the word potion after): ");
@@ -522,7 +535,8 @@ public class Main {
                                 System.out.println("Rare Drop Poison Potion! \uD83D\uDC9A ");
                                 inventory.addInventory("poison Potion");
                             }
-                        } else {
+                        } 
+                        else {
                             System.out.println("Incorrect!");
                             tries--;
                             System.out.println("Number of Tries: " + tries);
@@ -554,7 +568,8 @@ public class Main {
                                     inventory.addInventory("poison Potion");
                                 }
 
-                            } else {
+                            } 
+                            else {
                                 System.out.println("Incorrect your back at your previous position.");
                                 m.failedRoom("w");
                             }
@@ -603,11 +618,13 @@ public class Main {
                             if (a.equals("a")) {
                                 b.getHit(p.getAttack());
                                 System.out.println("❤\uFE0F\u200D\uD83E\uDE79 Boss Health points: " + b.getHealthPoints());
-                            } else if (a.equals("u")) {
+                            } 
+                            else if (a.equals("u")) {
                                 System.out.println(inventory.items());
                                 if (inventory.items().equals("No Items!")) {
                                     System.out.println("You just lost a turn because you have no items \uD83D\uDE2D");
-                                } else {
+                                } 
+                                else {
                                     System.out.println("Poison potion = Boss health ticks by one every player turn. \uD83D\uDC9A");
                                     System.out.println("Healing potion = Heal your own health by 5 points. \uD83D\uDC96 ");
                                     System.out.println("Enter your potion (don't add the word potion after): ");
@@ -650,7 +667,8 @@ public class Main {
                                 String RED = "\u001B[31m";
                                 System.out.println(RED + "GAME OVER" + RESET);
                                 gameOver = true;
-                            } else {
+                            } 
+                            else {
                                 System.out.println();
                                 System.out.println("---------");
                                 System.out.println("You won!");
